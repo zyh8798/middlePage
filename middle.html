@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>跳转中...</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 40vh;
+    }
+  </style>
+</head>
+<body>
+  <p>正在跳转，请稍候...</p>
+
+  <script>
+    function getQueryParam(key) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(key);
+    }
+
+    const targetUrl = decodeURIComponent(getQueryParam('url'));
+
+    if (targetUrl) {
+      location.href = targetUrl;
+    } else {
+      document.body.innerHTML = "<p style='color:red'>未提供跳转目标地址</p>";
+    }
+  </script>
+</body>
+</html>
