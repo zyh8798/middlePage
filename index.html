@@ -19,9 +19,7 @@
       const params = new URLSearchParams(window.location.search);
       return params.get(key);
     }
-
-    const targetUrl = decodeURIComponent(getQueryParam('url'));
-
+    const targetUrl = decodeURIComponent(getQueryParam('url')).replaceAll('"', '');
     if (targetUrl) {
       location.href = targetUrl;
     } else {
